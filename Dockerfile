@@ -32,25 +32,26 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 
 # install environment dependencies
-RUN python3 -m venv env
-RUN ls
+#RUN python3 -m venv env
+#RUN ls
 #RUN source env/bin/activate
-RUN . env/bin/activate
+#RUN . env/bin/activate
 
+#RUN pip3 install gunicorn
+RUN pip3 install --upgrade pip 
 RUN pip3 install poetry
-#RUN pip3 install --upgrade pip 
-#RUN pip3 intall pipenv
 
 # Install project dependencies
-RUN poetry install
+RUN poetry config virtualenvs.create false
+RUN poetry install --no-dev
 #RUN pipenv install --skip-lock --system --dev
 
 EXPOSE 8888
 #CMD ["gunicorn", "-k", "uvicorn.workers.UvicornWorker", "main:app"]
-#CMD gunicorn cfehome.wsgi:application --bind 0.0.0.0:$PORT
+CMD gunicorn cfehome.wsgi:application --bind 0.0.0.0:$PORT
 #CMD ["gunicorn", "cfehome.wsgi:application" , "-bind", "0.0.0.0:$PORT"]
 #COPY entrypoint.sh wsgi.py ./
 #CMD ["./entrypoint.sh"]
-RUN chmod +x startup.sh
-CMD ["./startup.sh"]
+#RUN chmod +x startup.sh
+#CMD ["./startup.sh"]
 #ENTRYPOINT ["sh", "startup.sh"]
