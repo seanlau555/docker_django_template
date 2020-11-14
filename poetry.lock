@@ -48,8 +48,8 @@ python-versions = "*"
 
 [metadata]
 lock-version = "1.1"
-python-versions = "^3.6"
-content-hash = "69f61aef66d8047aadb304f3de0b8160ccebc9abb7cf5ccb678123a2b01db833"
+python-versions = "^3.7"
+content-hash = "43f7acdec09df49af5f8f75987d4a398ff7522869ad78a6f9814ca3900d0319e"
 
 [metadata.files]
 django = [
