@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "simple_dj_docker"
+name = "docker_django_template"
 version = "0.1.0"
 description = ""
 authors = ["Sean <lthon0225@gmail.com>"]
