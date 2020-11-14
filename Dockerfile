@@ -44,9 +44,9 @@ RUN pip3 install poetry
 RUN poetry config virtualenvs.create false
 RUN poetry install --no-dev
 
-EXPOSE 8888
+EXPOSE 8000
 #CMD ["gunicorn", "-k", "uvicorn.workers.UvicornWorker", "main:app"]
-CMD gunicorn cfehome.wsgi:application --bind 0.0.0.0:$PORT
+CMD gunicorn cfehome.wsgi:application --bind 0.0.0.0:8000 #:$PORT
 #CMD ["gunicorn", "cfehome.wsgi:application" , "-bind", "0.0.0.0:$PORT"]
 #COPY entrypoint.sh wsgi.py ./
 #CMD ["./entrypoint.sh"]
